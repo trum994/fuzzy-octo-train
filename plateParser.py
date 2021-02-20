@@ -20,7 +20,7 @@ class WellPlate96:
 
     def load_raw_data(self, raw_in):
         # read in the file skipping header including column names and footer rows
-        some_df = pd.read_table(raw_in, skiprows=3, skipfooter=2, header=None, sep='\t', engine='python')
+        some_df = pd.read_csv(raw_in, skiprows=3, skipfooter=2, header=None, sep='\t', engine='python')
 
         # file format creates two empty columns at the end, drop these
         some_df.dropna(axis=1, how="all", inplace=True)
